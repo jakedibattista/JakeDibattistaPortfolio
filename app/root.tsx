@@ -20,6 +20,16 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <nav className="bg-gray-800 text-white p-4">
+          <div className="max-w-4xl mx-auto flex justify-between items-center">
+            <span className="font-bold text-xl">My Remix App</span>
+            <div className="space-x-4">
+              <a href="/" className="hover:text-gray-300">Home</a>
+              <a href="/about" className="hover:text-gray-300">About</a>
+              <a href="/projects" className="hover:text-gray-300">Projects</a>
+            </div>
+          </div>
+        </nav>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
