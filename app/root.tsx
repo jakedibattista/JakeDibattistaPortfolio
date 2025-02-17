@@ -12,14 +12,14 @@ import "./tailwind.css";
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="dark:bg-gray-900">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-white dark:bg-gray-900 transition-colors">
         <nav className="bg-gray-800 text-white p-4">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <span className="font-bold text-xl">My Remix App</span>
