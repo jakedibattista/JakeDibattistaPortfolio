@@ -1,11 +1,12 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "remix.env.d.ts"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@vercel/remix", "node", "vite/client"],
+    "types": ["@remix-run/node", "vite/client", "@types/react", "@types/react-dom"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
