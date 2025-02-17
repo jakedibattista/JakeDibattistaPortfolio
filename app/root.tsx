@@ -13,7 +13,6 @@ import "./tailwind.css";
 import { useState, useEffect } from 'react';
 import NProgress from 'nprogress';
 import { Footer } from "~/components/Footer";
-import { Search } from "~/components/Search";
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -48,13 +47,10 @@ export default function App() {
         <nav className="bg-gray-800 text-white p-4">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <span className="font-bold text-xl">My Remix App</span>
-            <div className="flex items-center space-x-4">
-              <Search />
-              <div className="space-x-4">
-                <a href="/" className="hover:text-gray-300">Home</a>
-                <a href="/about" className="hover:text-gray-300">About</a>
-                <a href="/projects" className="hover:text-gray-300">Projects</a>
-              </div>
+            <div className="space-x-4">
+              <a href="/" className="hover:text-gray-300">Home</a>
+              <a href="/about" className="hover:text-gray-300">About</a>
+              <a href="/projects" className="hover:text-gray-300">Projects</a>
             </div>
           </div>
         </nav>

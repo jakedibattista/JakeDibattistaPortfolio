@@ -2,6 +2,12 @@ import type { MetaFunction } from "@remix-run/node";
 import { useState } from 'react';
 import { useNavigation } from '@remix-run/react';
 
+type Message = {
+  id: number;
+  text: string;
+  sender: 'user' | 'bot';
+};
+
 export const meta: MetaFunction = () => {
   return [
     { title: "My Remix App" },
@@ -10,10 +16,41 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const [count, setCount] = useState(0);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: 1,
+      text: "Hi! I'm Jake AI. Feel free to ask me anything about my experience, projects, or interests!",
+      sender: 'bot'
+    }
+  ]);
+  const [inputText, setInputText] = useState('');
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
   
+  const handleSend = () => {
+    if (!inputText.trim()) return;
+
+    // Add user message
+    const newMessage: Message = {
+      id: Date.now(),
+      text: inputText,
+      sender: 'user'
+    };
+
+    setMessages(prev => [...prev, newMessage]);
+    setInputText('');
+
+    // Mock bot response
+    setTimeout(() => {
+      const botMessage: Message = {
+        id: Date.now(),
+        text: "Thanks for your message! I'm currently in development, but soon I'll be able to tell you all about Jake's experience and projects.",
+        sender: 'bot'
+      };
+      setMessages(prev => [...prev, botMessage]);
+    }, 1000);
+  };
+
   return (
     <div className={`max-w-4xl mx-auto p-8 font-sans ${isLoading ? 'opacity-50' : ''}`}>
       <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
@@ -39,15 +76,52 @@ export default function Index() {
         </li>
       </ul>
       
-      <div className="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-        <h3 className="text-xl font-semibold mb-4 dark:text-white">Interactive Counter</h3>
-        <p className="text-2xl mb-4 dark:text-white">Count: {count}</p>
-        <button 
-          onClick={() => setCount(c => c + 1)}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-        >
-          Increment
-        </button>
+      <div className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Chat with Jake AI</h2>
+        <div className="h-[400px] overflow-y-auto mb-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+          {/* Messages will go here */}
+          {messages.map(message => (
+            <div
+              key={message.id}
+              className={`flex items-start space-x-2 mb-4 ${
+                message.sender === 'user' ? 'justify-end' : 'justify-start'
+              }`}
+            >
+              {message.sender === 'bot' && (
+                <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm">
+                  JA
+                </div>
+              )}
+              <div
+                className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                  message.sender === 'user'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white'
+                }`}
+              >
+                {message.text}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex space-x-2">
+          <input
+            type="text"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+            placeholder="Ask me anything..."
+            className="flex-1 px-4 py-2 border dark:border-gray-700 rounded-lg 
+              focus:outline-none focus:ring-2 focus:ring-blue-500
+              dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+          />
+          <button
+            onClick={handleSend}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg"
+          >
+            Send
+          </button>
+        </div>
       </div>
     </div>
   );
