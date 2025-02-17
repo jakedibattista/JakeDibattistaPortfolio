@@ -23,7 +23,7 @@ export default function Index() {
         This is a custom welcome page for my new Remix application.
       </p>
       
-      <h2 className="text-2xl font-semibold mb-4">Features</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Features</h2>
       <ul className="space-y-2">
         <li className="flex items-center text-gray-700 dark:text-gray-200">
           <span className="mr-2">✨</span>

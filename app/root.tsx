@@ -27,6 +27,14 @@ export default function App() {
     }
   }, [navigation.state]);
 
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
   return (
     <html lang="en" className={theme}>
       <head>
@@ -36,7 +44,7 @@ export default function App() {
         <Links />
         <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
       </head>
-      <body className="bg-white dark:bg-gray-900 transition-colors">
+      <body className="bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen flex flex-col">
         <nav className="bg-gray-800 text-white p-4">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <span className="font-bold text-xl">My Remix App</span>
@@ -50,7 +58,9 @@ export default function App() {
             </div>
           </div>
         </nav>
-        <Outlet />
+        <main className="flex-1">
+          <Outlet />
+        </main>
         <Footer />
         <ScrollRestoration />
         <Scripts />
