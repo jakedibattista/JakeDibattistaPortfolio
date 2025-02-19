@@ -1,26 +1,60 @@
-# Modern Remix App
+# Jake AI Chat
 
-A modern web application built with Remix, TypeScript, and Tailwind CSS.
+A Remix-based chat application using OpenAI's GPT-3.5 API.
 
 ## Features
-- 🎨 Dark/Light mode toggle
-- 🔍 Search functionality with dropdown
-- ⚡ Fast page transitions with loading bar
-- 📱 Responsive layout
-- 🛠️ TypeScript support
-- 🎯 Error boundary handling
-- 🚀 Vercel deployment
+- Real-time chat interface
+- OpenAI GPT-3.5 integration
+- Dark/Light mode support
+- TypeScript support
+- Responsive design
 
-## Tech Stack
-- Remix
-- TypeScript
-- Tailwind CSS
-- Vercel Analytics
-- NProgress
+## Setup
 
-## Getting Started
+1. Clone the repository:
+
+bash
+git clone [your-repo-url]
+cd [your-repo-name]
+
+2. Install dependencies:
+bash
+npm install
+
+3. Set up environment variables:
+-   - Copy `.env` to `.env.local`
+    - Copy `.env.example` to `.env.local`
+    - Add your OpenAI API key to `.env.local`:
+
+OPENAI_API_KEY=your_openai_api_key
+
+4. Start the development server:
+bash
+npm run dev
 
 ## Structure
+
 - `/app/root.tsx` - Main layout, dark mode, navigation
 - `/app/routes/_index.tsx` - Home page with counter
 - `/app/components/` - Reusable components (Search, Footer)
+
+## Deployment
+
+The app is deployed on Vercel.
+
+## Contributing
+
+## Environment Variables
+
+Required environment variables in `.env.local`:
+- `OPENAI_API_KEY`: Your OpenAI API key
+
+## Development
+
+- Built with Remix
+- Uses OpenAI's GPT-3.5 API
+- Styled with Tailwind CSS
+
+## License
+
+MIT
