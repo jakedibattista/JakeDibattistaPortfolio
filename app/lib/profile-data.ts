@@ -95,7 +95,7 @@ export const profileData = {
         "Server-side rendering"
       ],
       links: {
-        live: "https://remixtesting.vercel.app/",
+        live: "https://remix-testing-and-portfolio.vercel.app/",
         github: "https://github.com/jakedibattista/remixtesting"
       }
     },
@@ -133,7 +133,7 @@ export const profileData = {
   links: {
     github: "https://github.com/jakedibattista",
     linkedin: "https://www.linkedin.com/in/jake-dibattista-a96011a1/",
-    portfolio: "https://remixtesting.vercel.app/"
+    portfolio: "https://remix-testing-and-portfolio.vercel.app/"
   },
 
   writing: {
