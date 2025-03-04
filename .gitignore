@@ -20,3 +20,7 @@ test-openai.ts
 .env.production
 *.env*
 .env.production
+.env*
+.env.production
+*.local
+test-openai.ts
