@@ -4,6 +4,10 @@ import { profileData } from './profile-data';
 
 const apiKey = process.env.OPENAI_API_KEY;
 
+if (!apiKey) {
+  console.warn('Warning: OPENAI_API_KEY is not set');
+}
+
 export const openai = new OpenAI({
   apiKey: apiKey || '',  // Vercel needs a default value
 });
@@ -25,8 +29,11 @@ const models = [
 export async function generateChatResponse(message: string) {
   try {
     if (!apiKey) {
+      console.error('Error: OPENAI_API_KEY is required');
       throw new Error('OPENAI_API_KEY environment variable is required');
     }
+
+    console.log('Generating chat response for message:', message);
 
     const systemPrompt = `You are Jake AI, an AI version of ${profileData.basics.name}. Here's your background:
 
@@ -72,6 +79,7 @@ export async function generateChatResponse(message: string) {
     - If asked about personal opinions, clarify you're an AI representation
     - Keep responses focused on my technical skills, projects, and professional background`;
 
+    console.log('Making API call to OpenAI');
     const completion = await openai.chat.completions.create({
       messages: [
         { role: "system", content: systemPrompt },
@@ -80,11 +88,24 @@ export async function generateChatResponse(message: string) {
       model: "gpt-3.5-turbo",
       temperature: 0.7,
       max_tokens: 1000,
+    }).catch(error => {
+      console.error('OpenAI API call failed:', error);
+      throw error;
     });
+
+    console.log('OpenAI API response received:', completion);
+
+    if (!completion.choices[0]?.message) {
+      console.error('No message in OpenAI response');
+      throw new Error('Invalid response from OpenAI');
+    }
 
     return completion.choices[0].message;
   } catch (error) {
-    console.error('OpenAI API error:', error);
-    throw error;
+    console.error('Error in generateChatResponse:', error);
+    if (error instanceof Error) {
+      throw new Error(`OpenAI API error: ${error.message}`);
+    }
+    throw new Error('Unknown error occurred');
   }
 } 
