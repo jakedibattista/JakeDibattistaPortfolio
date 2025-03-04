@@ -17,7 +17,7 @@ const projects: Project[] = [
     technologies: ["React", "TypeScript", "OpenAI API", "Remix", "Tailwind CSS"],
     imageUrl: "https://raw.githubusercontent.com/remix-run/remix/main/packages/remix-dev/logo.svg", // Using Remix logo as fallback
     githubUrl: "https://github.com/jakedibattista/remixtesting",
-    liveUrl: "https://jakebot.vercel.app",
+    liveUrl: "https://remixtesting.vercel.app/",
     buildProcess: "Built using Remix and TypeScript, this project implements OpenAI's chat completion API. I focused on creating a responsive interface with real-time updates and proper error handling. The application maintains conversation context and implements proper TypeScript safety patterns."
   },
   {
