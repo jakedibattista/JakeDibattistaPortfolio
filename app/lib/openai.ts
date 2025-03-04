@@ -1,8 +1,10 @@
 import OpenAI from 'openai';
 import { json } from '@remix-run/node';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+const apiKey = process.env.OPENAI_API_KEY;
+
+export const openai = new OpenAI({
+  apiKey: apiKey || '',  // Vercel needs a default value
 });
 
 const models = [
@@ -19,12 +21,13 @@ const models = [
   // Add more fallback models here
 ];
 
-export async function generateChatResponse(prompt: string) {
+export async function generateChatResponse(message: string) {
   try {
-    console.log('Sending message:', prompt);
-    
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY environment variable is required');
+    }
+
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
@@ -32,16 +35,16 @@ export async function generateChatResponse(prompt: string) {
           particularly with React, Remix, and TypeScript. You're friendly and professional. 
           You should answer questions about Jake's experience, projects, and technical skills.`
         },
-        { role: "user", content: prompt }
+        { role: "user", content: message }
       ],
+      model: "gpt-3.5-turbo",
       temperature: 0.7,
       max_tokens: 1000,
     });
 
-    console.log('Got response:', completion.choices[0].message);
-    return completion.choices[0].message.content;
+    return completion.choices[0].message;
   } catch (error) {
-    console.error('Error:', error);
-    return 'Sorry, I encountered an error. Please try again.';
+    console.error('OpenAI API error:', error);
+    throw error;
   }
 } 
