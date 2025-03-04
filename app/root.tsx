@@ -13,6 +13,13 @@ import "./tailwind.css";
 import { useState, useEffect } from 'react';
 import NProgress from 'nprogress';
 import { Footer } from "~/components/Footer";
+import { json, type ActionFunctionArgs } from "@remix-run/node";
+import { generateChatResponse } from "~/lib/openai";
+
+interface AIResponse {
+  content: string;
+  // add other properties if needed
+}
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -46,7 +53,7 @@ export default function App() {
       <body className="bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen flex flex-col">
         <nav className="bg-gray-800 text-white p-4">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
-            <span className="font-bold text-xl">My Remix App</span>
+            <span className="font-bold text-xl">Jake DiBattista's Portfolio</span>
             <div className="space-x-4">
               <a href="/" className="hover:text-gray-300">Home</a>
               <a href="/about" className="hover:text-gray-300">About</a>
@@ -94,4 +101,37 @@ export function ErrorBoundary() {
       </body>
     </html>
   );
+}
+
+export async function action({ request }: ActionFunctionArgs): Promise<Response> {
+  try {
+    console.log('Action called');
+    const formData = await request.formData();
+    console.log('Form data:', formData);
+    const message = formData.get("message");
+    console.log('Message:', message);
+    
+    if (typeof message !== "string") {
+      console.log('Invalid message');
+      return json({ error: "Message is required" });
+    }
+
+    const response = await generateChatResponse(message);
+    console.log('OpenAI response:', response);
+    
+    if (!response) {
+      return json({ error: "Failed to get response from AI" }, { status: 500 });
+    }
+    
+    const messageContent = isAIResponse(response) ? response.content : response;
+    console.log('Final message:', messageContent);
+    return json({ message: messageContent });
+  } catch (error) {
+    console.error('Action error:', error);
+    return json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+function isAIResponse(response: unknown): response is AIResponse {
+  return typeof response === 'object' && response !== null && 'content' in response;
 } 
