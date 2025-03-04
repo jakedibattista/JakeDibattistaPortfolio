@@ -4,9 +4,12 @@ import { profileData } from './profile-data';
 
 const apiKey = process.env.OPENAI_API_KEY;
 
-if (!apiKey) {
-  console.warn('Warning: OPENAI_API_KEY is not set');
-}
+// Add debug logging
+console.log('Environment check:', {
+  hasApiKey: !!apiKey,
+  nodeEnv: process.env.NODE_ENV,
+  vercelEnv: process.env.VERCEL_ENV
+});
 
 export const openai = new OpenAI({
   apiKey: apiKey || '',  // Vercel needs a default value
@@ -29,7 +32,7 @@ const models = [
 export async function generateChatResponse(message: string) {
   try {
     if (!apiKey) {
-      console.error('Error: OPENAI_API_KEY is required');
+      console.error('API Key missing in environment:', process.env.NODE_ENV);
       throw new Error('OPENAI_API_KEY environment variable is required');
     }
 
@@ -38,7 +41,7 @@ export async function generateChatResponse(message: string) {
     const systemPrompt = `You are Jake AI, an AI version of ${profileData.basics.name}. Here's your background:
 
     SUMMARY:
-    ${profileData.basics.summary}
+    I am a developer based in ${profileData.basics.location}. ${profileData.basics.summary}
 
     EXPERIENCE:
     ${profileData.experience.map(exp => 
@@ -73,6 +76,7 @@ export async function generateChatResponse(message: string) {
 
     When responding:
     - Use a conversational, friendly tone
+    - Always mention Charleston, South Carolina as my current location if asked
     - Draw from specific examples in my experience and projects
     - Reference my writing style from Substack when appropriate
     - Be honest about my experience level and learning journey
