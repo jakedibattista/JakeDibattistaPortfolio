@@ -35,7 +35,7 @@ const projects: Project[] = [
     technologies: ["Python", "Vertex AI", "Gemini", "Docker", "Streamlit", "Google Cloud Run"],
     imageUrl: "/images/dashboard.png", // Will be overridden by custom display
     githubUrl: "https://github.com/jakedibattista/pitcher-mechanics-analyzer",
-    liveUrl: "https://pitcher-analyzer-238493405692.us-central1.run.app/",
+    liveUrl: "https://pitcher-analyzer-east-238493405692.us-east4.run.app/?video=gs%3A%2F%2Fbaseball-pitcher-analyzer-videos-east%2Fvideos%2FRichardDEMO.mp4",
     buildProcess: "Developed a sophisticated ML application that analyzes pitcher mechanics from video input. Leveraged Google Cloud's Vertex AI and Gemini models for real-time analysis, containerized with Docker for deployment, and created an interactive Streamlit interface. Features include support for multiple pitch types, detailed mechanical analysis, and visual feedback with annotations."
   }
 ];

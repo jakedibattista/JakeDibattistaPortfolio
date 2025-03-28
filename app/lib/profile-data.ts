@@ -124,7 +124,7 @@ export const profileData = {
         "Visual annotations"
       ],
       links: {
-        live: "https://pitcher-analyzer-238493405692.us-central1.run.app/",
+        live: "https://pitcher-analyzer-east-238493405692.us-east4.run.app/?video=gs%3A%2F%2Fbaseball-pitcher-analyzer-videos-east%2Fvideos%2FRichardDEMO.mp4",
         github: "https://github.com/jakedibattista/pitcher-mechanics-analyzer"
       }
     }
