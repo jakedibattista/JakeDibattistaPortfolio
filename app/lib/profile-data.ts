@@ -1,9 +1,9 @@
 export const profileData = {
   basics: {
     name: "Jake DiBattista",
-    title: "Technology Professional & Developer",
+    title: "AI Software Engineer & Technology Professional",
     location: "Charleston, South Carolina",
-    summary: "Technology professional leveraging enterprise experience at Gartner to transition into software development. Combining deep understanding of business technology needs with hands-on development skills. Building AI-integrated applications while exploring the intersection of technology and philosophy through writing."
+    summary: "AI Software Engineer with a track record of building innovative AI solutions. Winner of the Google Cloud x MLB™ Hackathon, specializing in LLMs, multi-agent systems, and AI-powered applications. Combining enterprise experience with cutting-edge AI development to create impactful solutions."
   },
 
   experience: [
@@ -60,29 +60,96 @@ export const profileData = {
       "Remix",
       "Tailwind CSS",
       "HTML/CSS",
-      "JavaScript"
+      "JavaScript",
+      "Next.js"
     ],
     backend: [
       "Node.js",
       "Python",
       "RESTful APIs",
-      "PostgreSQL"
+      "PostgreSQL",
+      "MongoDB"
     ],
     cloud: [
       "Google Cloud Platform",
       "Vercel",
       "Docker",
-      "Cloud Run"
+      "Cloud Run",
+      "AWS"
     ],
     ai: [
       "OpenAI API",
       "LangChain",
       "Vertex AI",
-      "Gemini"
+      "Gemini",
+      "Multi-Agent Systems",
+      "MCP (Model Context Protocol)",
+      "Custom AI Agents"
     ]
   },
 
   projects: [
+    {
+      title: "Learn2Play Store - Board Game Learning Platform",
+      status: "Current",
+      description: "A marketplace and custom video chat agent to help users learn and play board games. Features AI-powered game instruction and real-time video assistance.",
+      technologies: ["Next.js", "TypeScript", "OpenAI", "Video Chat", "AI Agents"],
+      features: [
+        "AI-powered board game instruction",
+        "Real-time video chat assistance",
+        "Marketplace for game discovery",
+        "Custom AI agents for game learning"
+      ],
+      links: {
+        live: "https://learn2play.store",
+        github: "https://github.com/jakedibattista/bolthackathon"
+      }
+    },
+    {
+      title: "NBA AI in Action - MCP Trading Agent",
+      description: "Custom MCP (Model Context Protocol) agent for NBA trade analysis using MongoDB integration",
+      technologies: ["Python", "MCP", "MongoDB", "OpenAI", "Custom Agents"],
+      features: [
+        "Custom MCP server implementation",
+        "MongoDB integration for data persistence",
+        "NBA trade analysis and recommendations",
+        "Real-time data processing"
+      ],
+      links: {
+        github: "https://github.com/jakedibattista/nbaaiinaction"
+      }
+    },
+    {
+      title: "ADK Marketing Bot - Multi-Agent Marketing Tool",
+      description: "Small business multi-agent marketing tool to create campaigns and social media content",
+      technologies: ["Python", "Multi-Agent Systems", "OpenAI", "Marketing Automation"],
+      features: [
+        "Multi-agent system for marketing tasks",
+        "Automated campaign creation",
+        "Social media content generation",
+        "Business-focused AI solutions"
+      ],
+      links: {
+        github: "https://github.com/jakedibattista/ADK-MarketingBot"
+      }
+    },
+    {
+      title: "Pitcher Mechanics Analyzer - Google Cloud x MLB™ Winner",
+      status: "Grand Prize Winner",
+      description: "ML-powered baseball pitcher mechanics analysis tool that won the Google Cloud x MLB™ Hackathon",
+      technologies: ["Python", "Vertex AI", "Gemini", "Streamlit", "Computer Vision"],
+      features: [
+        "Real-time video analysis",
+        "Mechanical feedback generation",
+        "Multiple pitch type support",
+        "Visual annotations",
+        "Hackathon-winning solution"
+      ],
+      links: {
+        live: "https://pitcher-analyzer-east-238493405692.us-east4.run.app/?video=gs%3A%2F%2Fbaseball-pitcher-analyzer-videos-east%2Fvideos%2FRichardDEMO.mp4",
+        github: "https://github.com/jakedibattista/GoogleCloud-PitcherAnalyzer"
+      }
+    },
     {
       title: "AI Portfolio",
       status: "Current",
@@ -112,28 +179,14 @@ export const profileData = {
       links: {
         github: "https://github.com/jakedibattista/LangChainTesting"
       }
-    },
-    {
-      title: "Pitcher Mechanics Analyzer",
-      description: "ML-powered baseball pitcher mechanics analysis tool",
-      technologies: ["Python", "Vertex AI", "Gemini", "Streamlit"],
-      features: [
-        "Real-time video analysis",
-        "Mechanical feedback generation",
-        "Multiple pitch type support",
-        "Visual annotations"
-      ],
-      links: {
-        live: "https://pitcher-analyzer-east-238493405692.us-east4.run.app/?video=gs%3A%2F%2Fbaseball-pitcher-analyzer-videos-east%2Fvideos%2FRichardDEMO.mp4",
-        github: "https://github.com/jakedibattista/pitcher-mechanics-analyzer"
-      }
     }
   ],
 
   links: {
     github: "https://github.com/jakedibattista",
     linkedin: "https://www.linkedin.com/in/jake-dibattista-a96011a1/",
-    portfolio: "https://remix-testing-and-portfolio.vercel.app/"
+    portfolio: "https://remix-testing-and-portfolio.vercel.app/",
+    youtube: "https://www.youtube.com/watch?v=n_X4koZdfiA&t=6s"
   },
 
   writing: {
@@ -149,6 +202,8 @@ export const profileData = {
   },
 
   interests: [
+    "AI/ML Development",
+    "Multi-Agent Systems",
     "Web Development",
     "Artificial Intelligence",
     "Stoic Philosophy",
@@ -165,7 +220,8 @@ export const profileData = {
       "Balances technical precision with human understanding",
       "Values both logic and emotional intelligence",
       "Brings business acumen to development projects",
-      "Interested in practical applications of ancient wisdom"
+      "Interested in practical applications of ancient wisdom",
+      "Hackathon winner with proven AI development skills"
     ]
   },
 
@@ -177,6 +233,8 @@ export const profileData = {
       "Solution Architecture"
     ],
     development: [
+      "AI/ML Development",
+      "Multi-Agent Systems",
       "Full Stack Development",
       "AI Integration",
       "Modern Web Technologies",
@@ -186,7 +244,8 @@ export const profileData = {
       "Technical Writing",
       "Client Presentations",
       "Documentation",
-      "Philosophy Writing"
+      "Philosophy Writing",
+      "Video Content Creation"
     ]
   }
 }; 
