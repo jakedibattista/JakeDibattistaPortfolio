@@ -1,5 +1,4 @@
 import OpenAI from 'openai';
-import { json } from '@remix-run/node';
 import { profileData } from './profile-data';
 
 const apiKey = process.env.OPENAI_API_KEY;
