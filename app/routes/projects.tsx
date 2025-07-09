@@ -91,59 +91,33 @@ export default function Projects() {
             className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105"
           >
             {project.title === "Learn2Play Store - Board Game Learning Platform" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://nextjs.org/static/favicon/favicon-32x32.png"
-                  alt="Next.js"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-800 dark:to-purple-800">
+                <div className="text-6xl">🎲</div>
               </div>
             ) : project.title === "NBA AI in Action - MCP Trading Agent" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://www.mongodb.com/assets/images/global/leaf_512x512@2x.png"
-                  alt="MongoDB"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-800 dark:to-red-800">
+                <div className="text-6xl">🏀</div>
               </div>
             ) : project.title === "ADK Marketing Bot - Multi-Agent Marketing Tool" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://cdn.worldvectorlogo.com/logos/openai-2.svg"
-                  alt="OpenAI"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-green-100 to-teal-100 dark:from-green-800 dark:to-teal-800">
+                <div className="text-6xl">📈</div>
               </div>
             ) : project.title === "Pitcher Mechanics Analyzer - Google Cloud x MLB™ Winner" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://www.google.com/chrome/static/images/chrome-logo.svg"
-                  alt="Google"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-800 dark:to-orange-800">
+                <div className="text-6xl">⚾</div>
               </div>
             ) : project.title === "Jake's AI Portfolio" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://cdn.worldvectorlogo.com/logos/openai-2.svg"
-                  alt="OpenAI"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-800 dark:to-pink-800">
+                <div className="text-6xl">🤖</div>
               </div>
             ) : project.title === "Document Search Engine" ? (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src="https://streamlit.io/images/brand/streamlit-mark-color.svg"
-                  alt="Streamlit"
-                  className="h-24 w-24 object-contain"
-                />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-indigo-100 to-blue-100 dark:from-indigo-800 dark:to-blue-800">
+                <div className="text-6xl">🔍</div>
               </div>
             ) : (
-              <img 
-                src={project.imageUrl} 
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
+                <div className="text-6xl">💻</div>
+              </div>
             )}
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">

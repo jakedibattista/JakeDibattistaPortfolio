@@ -4,10 +4,5 @@
       "ENABLE_VC_BUILD": "1"
     }
   },
-  "framework": "remix",
-  "functions": {
-    "app/routes/**/*.tsx": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "framework": "remix"
 } 
