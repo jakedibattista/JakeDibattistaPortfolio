@@ -16,12 +16,12 @@ export const openai = new OpenAI({
 
 const models = [
   {
-    name: "gpt-3.5-turbo",
+    name: "gpt-4o-mini",
     maxTokens: 1000,
     temperature: 0.7,
   },
   {
-    name: "gpt-3.5-turbo-instruct",
+    name: "gpt-4o",
     maxTokens: 500,
     temperature: 0.5,
   },
@@ -88,7 +88,7 @@ export async function generateChatResponse(message: string) {
         { role: "system", content: systemPrompt },
         { role: "user", content: message }
       ],
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       temperature: 0.7,
       max_tokens: 1000,
     }).catch(error => {
