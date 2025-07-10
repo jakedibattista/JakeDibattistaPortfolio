@@ -14,9 +14,8 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Learn2Play Store - Board Game Learning Platform",
-    status: "🚀 Current Project",
     description: "A marketplace and custom video chat agent to help users learn and play board games. Features AI-powered game instruction and real-time video assistance.",
-    technologies: ["Next.js", "TypeScript", "OpenAI", "Video Chat", "AI Agents"],
+    technologies: ["Next.js", "TypeScript", "Gemini Embeddings", "Tavus", "Bolt.New", "Stripe", "Supabase", "Eleven Labs"],
     imageUrl: "https://nextjs.org/static/favicon/favicon-32x32.png",
     githubUrl: "https://github.com/jakedibattista/bolthackathon",
     liveUrl: "https://learn2play.store",
@@ -25,24 +24,23 @@ const projects: Project[] = [
   {
     title: "NBA AI in Action - MCP Trading Agent",
     description: "Custom MCP (Model Context Protocol) agent for NBA trade analysis using MongoDB integration",
-    technologies: ["Python", "MCP", "MongoDB", "OpenAI", "Custom Agents"],
+    technologies: ["Python", "MCP", "MongoDB"],
     imageUrl: "https://www.mongodb.com/assets/images/global/leaf_512x512@2x.png",
     githubUrl: "https://github.com/jakedibattista/nbaaiinaction",
-    liveUrl: "",
+    liveUrl: "https://nba-agent-client-34396488451.us-central1.run.app/",
     buildProcess: "Developed a custom MCP server implementation for NBA trade analysis. Integrated MongoDB for data persistence and created specialized agents for sports analytics. Built a sophisticated system for real-time trade recommendations and data processing."
   },
   {
     title: "ADK Marketing Bot - Multi-Agent Marketing Tool",
     description: "Small business multi-agent marketing tool to create campaigns and social media content",
-    technologies: ["Python", "Multi-Agent Systems", "OpenAI", "Marketing Automation"],
+    technologies: ["Python", "Multi-Agent Systems", "Google ADK", "Veo3", "VertexAI", "Imagen4", "JavaScript", "Firebase"],
     imageUrl: "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
     githubUrl: "https://github.com/jakedibattista/ADK-MarketingBot",
-    liveUrl: "",
+    liveUrl: "https://adkchl.web.app/",
     buildProcess: "Created a multi-agent system for marketing automation targeting small businesses. Implemented specialized agents for campaign creation, content generation, and social media management. Built a comprehensive solution for automated marketing workflows."
   },
   {
     title: "Pitcher Mechanics Analyzer - Google Cloud x MLB™ Winner",
-    status: "🏆 Grand Prize Winner",
     description: "ML-powered baseball pitcher mechanics analysis tool that won the Google Cloud x MLB™ Hackathon",
     technologies: ["Python", "Vertex AI", "Gemini", "Streamlit", "Computer Vision"],
     imageUrl: "https://www.google.com/chrome/static/images/chrome-logo.svg",
@@ -52,7 +50,6 @@ const projects: Project[] = [
   },
   {
     title: "Jake's AI Portfolio",
-    status: "Current",
     description: "An AI-powered portfolio that combines Remix's modern web capabilities with OpenAI's GPT model, allowing visitors to interact and learn about my work through natural conversation.",
     technologies: ["React", "TypeScript", "OpenAI API", "Remix", "Tailwind CSS"],
     imageUrl: "https://raw.githubusercontent.com/remix-run/remix/main/packages/remix-dev/logo.svg",
@@ -60,15 +57,7 @@ const projects: Project[] = [
     liveUrl: "https://remix-testing-and-portfolio.vercel.app/",
     buildProcess: "Built using Remix and TypeScript, this project implements OpenAI's chat completion API. I focused on creating a responsive interface with real-time updates and proper error handling. The application maintains conversation context and implements proper TypeScript safety patterns."
   },
-  {
-    title: "Document Search Engine",
-    description: "A semantic search application that processes PDFs and text documents using LangChain and Supabase. Features include semantic search across documents using embeddings, relevance scoring, and document management.",
-    technologies: ["Python", "LangChain", "Supabase", "PostgreSQL", "Streamlit", "HuggingFace"],
-    imageUrl: "https://langchain.com/images/langchain.png",
-    githubUrl: "https://github.com/jakedibattista/LangChainTesting",
-    liveUrl: "",
-    buildProcess: "Built a full-stack document search engine using LangChain for document processing and semantic search. Implemented pgvector in Supabase for vector similarity search, and created a Streamlit frontend for document management and search functionality. Features include PDF processing, semantic search with relevance scores, and batch document management."
-  }
+
 ];
 
 export const meta: MetaFunction = () => {
