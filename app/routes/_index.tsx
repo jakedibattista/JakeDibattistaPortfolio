@@ -39,6 +39,13 @@ export default function Index() {
         sender: 'bot'
       };
       setMessages(prev => [...prev, botMessage]);
+    } else if (actionData?.error) {
+      const errorMessage: Message = {
+        id: Date.now(),
+        text: `Sorry, I encountered an error: ${actionData.error}. Please try again.`,
+        sender: 'bot'
+      };
+      setMessages(prev => [...prev, errorMessage]);
     }
   }, [actionData]);
 
@@ -173,12 +180,17 @@ export async function action({ request }: ActionFunctionArgs) {
     const response = await generateChatResponse(message);
     console.log('OpenAI response:', response);
     
-    const messageContent = typeof response === 'object' ? response.content : response;
+    if (!response || !response.content) {
+      console.error('Invalid OpenAI response structure:', response);
+      return json({ error: "Failed to get valid response from AI" }, { status: 500 });
+    }
+    
+    const messageContent = response.content;
     console.log('Final message:', messageContent);
     return json({ message: messageContent });
   } catch (error) {
     console.error('Action error:', error);
-    return json({ error: 'Internal server error' }, { status: 500 });
+    return json({ error: `Internal server error: ${error instanceof Error ? error.message : 'Unknown error'}` }, { status: 500 });
   }
 }
 
